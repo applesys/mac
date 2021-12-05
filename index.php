@@ -74,6 +74,19 @@ input, select {
     font-size: 14pt;
     position: relative;
 }
+.actionButtonRed {
+    background: linear-gradient(to bottom, #f3123b 0%, #ed1157 100%);
+    background-size: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 29px;
+    height: 28px;
+    font-family: "sfuitext";
+    font-weight: bold;
+    font-size: 14pt;
+    position: relative;
+}
 </style>
 <script src="jquery.js"></script>
 <script src="base.js"></script>
@@ -81,6 +94,11 @@ input, select {
 <body>
 <div class='top'>
 <p align="center">
+<?php if ($_REQUEST['seq'] == 'yes') { ?>
+<input id="enterSeq" type="text" style="width:72%;" placeholder="List the GET command sequences" value="">
+<input type="button" class="actionButtonGreen" onclick="seq(enterSeq.value);" value="GET">
+<input type="button" class="actionButtonRed" onclick="window.location.href='index.php';" value="!">
+<?php } else { ?>
 <select id="enterKey" onchange="
 var curSys = getButton.name;
 var keyVal = enterKey.options[enterKey.selectedIndex].value;
@@ -105,6 +123,8 @@ if (keyVal == 'i') {
 <input type="text" id="enterRepo" style="width:20%;" placeholder="Repo" value="">
 <input type="text" id="enterUser" style="width:20%;" placeholder="User" value="">
 <input id='getButton' name="<?=file_get_contents('system.info');?>" type="button" class="actionButtonGreen" onclick="get(enterKey.options[enterKey.selectedIndex].value,enterPkg.value,enterRepo.value,enterUser.value);" value="GET">
+<input type="button" class="actionButtonRed" onclick="window.location.href='index.php?seq=yes';" value="!">
+<?php } ?>
 </p>
 </div>
 <div class='panel'>
