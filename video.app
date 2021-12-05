@@ -1,0 +1,1 @@
+QuickTime=||=sys.vid.png=||=window.location.href='finder.php?q=.mp4,.mkv,.webm';

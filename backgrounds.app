@@ -1,0 +1,1 @@
+Change Background=||=sys.back.png=||=window.location.href='backgrounds.php';

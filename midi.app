@@ -1,0 +1,1 @@
+GarageBand=||=sys.mid.png=||=window.location.href='finder.php?q=.mid,.midi,.rmi';

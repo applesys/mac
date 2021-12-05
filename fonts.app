@@ -1,0 +1,1 @@
+Fonts=||=sys.fon.png=||=window.location.href='finder.php?q=.ttf,.otf,.ttc';

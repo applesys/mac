@@ -1,0 +1,1 @@
+Text Editor=||=sys.edit.png=||=window.location.href='textedit.php?name=file';

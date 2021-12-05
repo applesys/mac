@@ -1,0 +1,1 @@
+Books=||=sys.book.png=||=window.location.href='finder.php?q=.pdf';

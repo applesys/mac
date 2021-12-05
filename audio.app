@@ -1,0 +1,1 @@
+iTunes=||=sys.aud.png=||=window.location.href='finder.php?q=.mp3,.aac,.flac';

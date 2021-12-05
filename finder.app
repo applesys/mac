@@ -1,0 +1,1 @@
+Finder=||=sys.files.png=||=window.location.href='finder.php';
