@@ -46,7 +46,7 @@ foreach ($list as $key=>$value) {
 <option id="<?=$value;?>"><?=$backNameDisp;?></option>
 <?php } ?>
 </select>
-<input type="button" class="actionButtonYellow" onclick="set('background', '<?=$list[0];?>');" value="<">
+<input type="button" class="actionButtonRed" onclick="set('background', '<?=$list[0];?>');" value="<">
 <input type="button" class="actionButtonGreen" onclick="window.location.href='backgrounds.php?lock=<?=$lockInv;?>';" value="!">
 <input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
 </p>
