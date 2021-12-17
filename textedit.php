@@ -25,7 +25,8 @@ if ($lock != 'true') {
 <img class="actionIcon" src="sys.md.png" title="Create Directory" id="mkdirButton" onclick="var name = filename.value; mkdir(name);">
 <img class="actionIcon" src="sys.mv.png" title="Move/Rename File" id="moveButton" onclick="var name = filename.value; var to = doto.value; move(name, to);">
 <img class="actionIcon" src="sys.cp.png" title="Copy File" id="copyButton" onclick="var name = filename.value; var to = doto.value; copy(name, to);">
-<img class="actionIcon" src="sys.rm.png" title="Delete File" id="deleteButton" onclick="var name = filename.value; del(name);"><br>
+<img class="actionIcon" src="sys.rm.png" title="Delete File" id="deleteButton" onclick="var name = filename.value; del(name);">
+<img class="actionIcon" src="sys.home.png" title="Go Home" id="homeButton" onclick="window.location.href = 'index.php';"><br>
 </div>
 <div class='panel'>
 <label>Filename: </label>
