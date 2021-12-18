@@ -1,1 +1,1 @@
-Background Preview=||=sys.img.png=||=window.location.href='preview.php';
+Background Preview=||=sys.preview.png=||=window.location.href='preview.php';
