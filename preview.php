@@ -7,7 +7,7 @@ $dir = '.';
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>Background Preview</title>
-<link rel="shortcut icon" href="sys.img.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="shortcut icon" href="sys.preview.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
 </head>
 <body>
