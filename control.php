@@ -31,7 +31,7 @@ function set(name, content) {
 <div class='top'>
 <p align="center">
 macOS Control Center 
-<input type="button" class="actionButtonGreen" onclick="set('background', setBackField.value);" value=">">
+<input type="button" class="actionButtonGreen" onclick="set('background', 'https://' + setBackFieldHost.value + '/' + setBackFieldUser.value + '/' +setBackFieldRepo.value + '/blob/main/back.' + setBackField.value + '.png?raw=true');" value=">">
 <input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
