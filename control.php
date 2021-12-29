@@ -31,18 +31,16 @@ function set(name, content) {
 <div class='top'>
 <p align="center">
 macOS Control Center 
-<input type="button" class="actionButtonGreen" onclick="set('background', 'https://' + setBackFieldHost.value + '/' + setBackFieldUser.value + '/' +setBackFieldRepo.value + '/blob/main/back.' + setBackField.value + '.png?raw=true');" value=">">
+<input type="button" class="actionButtonGreen" onclick="set('background', setBackField.value);" value=">">
 <input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <div class='panel'>
 <p align="center">
-<label>Background host: </label>
-<input type='text' id='setBackFieldHost' style="width:25%;position:relative;" placeholder="Filename or URL" value="<?=explode('/', $background)[2];?>">
-<input type='text' id='setBackFieldUser' style="width:25%;position:relative;" placeholder="Filename or URL" value="<?=explode('/', $background)[3];?>"><br>
-<label>Background image: </label>
-<input type='text' id='setBackFieldRepo' style="width:25%;position:relative;" placeholder="Filename or URL" value="<?=explode('/', $background)[4];?>">
-<input type='text' id='setBackField' style="width:25%;position:relative;" placeholder="Filename or URL" value="<?=str_replace('back.', '', str_replace('.png?raw=true', '', explode('/', $background)[7]));?>">
+<label>Background image: </label><br>
+<textarea id='setBackField' style="width:82%;height:32%;" placeholder="Filename or URL" onkeydown="if (event.keyCode == 13) {
+    set('background', setBackField.value);
+}"><?=$background;?></textarea>
 </p>
 </div>
 </body>
