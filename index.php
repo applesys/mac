@@ -77,6 +77,7 @@ foreach ($list as $key=>$value) {
 ?>
 <img class="hover" style="height:15%;position:relative;" title="<?=$fileTitle;?>" src="<?=$fileIcon;?>?rev=<?=time();?>" onclick="<?=$fileLink;?>">
 <?php } ?>
+<img class="hover" style="height:15%;position:relative;" title="Exit" src="sys.exit.png?rev=<?=time();?>" onclick="window.location.href = '../';">
 </p>
 </div>
 </body>
