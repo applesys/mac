@@ -51,15 +51,14 @@ foreach ($list as $key=>$value) {
 <input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
+<?php if ($lock == 'false') { ?>
 <div class='panel'>
 <p align="center">
-<?php
-if ($lock == 'false') {
-    foreach ($list as $key=>$value) {
-?>
+<?php foreach ($list as $key=>$value) { ?>
 <img class="hover" style="height:15%;position:relative;" name="<?=$value;?>" title="<?=$value;?>" src="<?=$value;?>?rev=<?=time();?>" onclick="set('background', this.name);">
-<?php }} ?>
+<?php } ?>
 </p>
 </div>
+<?php } ?>
 </body>
 </html>
