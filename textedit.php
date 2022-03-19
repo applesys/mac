@@ -41,5 +41,6 @@ if ($lock != 'true') {
 <br>
 <label id="statusBar" style="width:98%;"></label>
 </div>
+<audio id="soundPlayer" <?php if (!$sounds) { ?>muted="muted"<?php } ?>>
 </body>
 </html>
