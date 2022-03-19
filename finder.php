@@ -115,7 +115,7 @@ foreach ($list as $key=>$value) {
             $type = 'MIDI';
         } elseif ($extension == 'mp3' || $extension == 'aac' || $extension == 'flac' || $extension == 'mka' || $extension == 'ogg' || $extension == 'wav' || $extension == 'm4a' || $extension == 'wma') {
             $icon = 'sys.aud.png';
-            $link = "javascript:playAudio('".$dir.'/'.$value."');";
+            $link = "javascript:playAudio(audioPlayer, '".$dir.'/'.$value."');";
             $type = 'Audio';
         } elseif ($extension == 'mp4' || $extension == 'mkv' || $extension == 'webm' || $extension == 'mpg' || $extension == 'mpeg' || $extension == 'avi' || $extension == 'wmv') {
             $icon = 'sys.vid.png';
