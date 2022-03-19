@@ -22,6 +22,9 @@ macOS Control Center
 </div>
 <div class='panel'>
 <p align="center">
+<input type='button' id="muteSound" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" name="<?=$sounds;?>" value="<?php if ($sounds) { ?>Mute<?php } else { ?>Unmute<?php } ?>" onclick="mute(muteSound.name);">
+</p>
+<p align="center">
 <label>Background image: </label><br>
 <textarea id='setBackField' style="width:82%;height:32%;" placeholder="Filename or URL" onkeydown="if (event.keyCode == 13) {
     set('background', setBackField.value);
