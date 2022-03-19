@@ -1,5 +1,5 @@
 <?php
-$background = file_get_contents('background');
+include 'config.php';
 $name = $_REQUEST['name'];
 ?>
 <html>

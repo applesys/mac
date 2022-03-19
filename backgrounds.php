@@ -1,5 +1,5 @@
 <?php
-$background = file_get_contents('background');
+include 'config.php';
 $dir = '.';
 $lock = ($_REQUEST['lock']) ? $_REQUEST['lock'] : 'true';
 if ($lock == 'true') {
@@ -16,23 +16,8 @@ $list = str_replace($dir.'/','',(glob($dir.'/back.*.png')));
 <title>Backgrounds</title>
 <link rel="shortcut icon" href="sys.back.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js"></script>
-<script src="base.js"></script>
-<script>
-function set(name, content) {
-    var dataString = 'name=' + name + '&content=' + content;
-    $.ajax({
-        type: "POST",
-        url: "write.php",
-        data: dataString,
-        cache: false,
-        success: function(html) {
-            window.location.reload();
-        }
-    });
-    return false;
-}
-</script>
+<script src="jquery.js?rev=<?=time();?>"></script>
+<script src="base.js?rev=<?=time();?>"></script>
 </head>
 <body>
 <div class='top'>
@@ -46,9 +31,9 @@ foreach ($list as $key=>$value) {
 <option id="<?=$value;?>"><?=$backNameDisp;?></option>
 <?php } ?>
 </select>
-<input type="button" class="actionButtonRed" onclick="set('background', '<?=$list[0];?>');" value="<">
-<input type="button" class="actionButtonGreen" onclick="window.location.href='backgrounds.php?lock=<?=$lockInv;?>';" value="!">
-<input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
+<input type="button" class="actionButtonYellow" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="set('background', '<?=$list[0];?>');" value="<">
+<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href='backgrounds.php?lock=<?=$lockInv;?>';" value="!">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <?php if ($lock == 'false') { ?>
@@ -60,5 +45,6 @@ foreach ($list as $key=>$value) {
 </p>
 </div>
 <?php } ?>
+<audio id="soundPlayer" <?php if (!$sounds) { ?>muted="muted"<?php } ?>>
 </body>
 </html>

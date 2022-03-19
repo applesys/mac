@@ -89,6 +89,19 @@ input, select, textarea {
     font-size: 14pt;
     position: relative;
 }
+.actionButtonYellow {
+    background: linear-gradient(to bottom, #f9d54c 0%, #ebbe14 100%);
+    background-size: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 29px;
+    height: 28px;
+    font-family: "sfuitext";
+    font-weight: bold;
+    font-size: 14pt;
+    position: relative;
+}
 .userDefine {
     font-family: "userdefine";
     font-size: 20pt;

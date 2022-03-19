@@ -1,1 +1,1 @@
-macOS Update=||=sys.upd.png=||=get('i', 'from', 'mac', 'applesys');
+macOS Update=||=sys.upd.png=||=get('i', '', 'from', 'mac', '', 'applesys');

@@ -1,5 +1,5 @@
 <?php
-$background = file_get_contents('background');
+include 'config.php';
 $name = $_REQUEST['name'];
 ?>
 <html>
@@ -9,12 +9,14 @@ $name = $_REQUEST['name'];
 <title>Font Book</title>
 <link rel="shortcut icon" href="sys.fon.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
+<script src="jquery.js?rev=<?=time();?>"></script>
+<script src="base.js?rev=<?=time();?>"></script>
 </head>
 <body>
 <div class='top'>
 <p align="center">
 Font Preview: <?=$name;?> 
-<input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="<">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="<">
 </p>
 </div>
 <div class='panel'>
@@ -22,5 +24,6 @@ Font Preview: <?=$name;?>
 0 1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g h i j k l m n o p q r s t u v w x y z
 </p>
 </div>
+<audio id="soundPlayer" <?php if (!$sounds) { ?>muted="muted"<?php } ?>>
 </body>
 </html>

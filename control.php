@@ -1,5 +1,5 @@
 <?php
-$background = file_get_contents('background');
+include 'config.php';
 $dir = '.';
 ?>
 <html>
@@ -9,30 +9,15 @@ $dir = '.';
 <title>macOS Control Center</title>
 <link rel="shortcut icon" href="sys.settings.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js"></script>
-<script src="base.js"></script>
-<script>
-function set(name, content) {
-    var dataString = 'name=' + name + '&content=' + content;
-    $.ajax({
-        type: "POST",
-        url: "write.php",
-        data: dataString,
-        cache: false,
-        success: function(html) {
-            window.location.reload();
-        }
-    });
-    return false;
-}
-</script>
+<script src="jquery.js?rev=<?=time();?>"></script>
+<script src="base.js?rev=<?=time();?>"></script>
 </head>
 <body>
 <div class='top'>
 <p align="center">
 macOS Control Center 
-<input type="button" class="actionButtonGreen" onclick="set('background', setBackField.value);" value=">">
-<input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
+<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="set('background', setBackField.value);" value=">">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <div class='panel'>

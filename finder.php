@@ -1,5 +1,5 @@
 <?php
-$background = file_get_contents('background');
+include 'config.php';
 $dir = ($_REQUEST['dir']) ? $_REQUEST['dir'] : '.';
 if ($_REQUEST) {
     $q = $_REQUEST['q'];
@@ -41,67 +41,15 @@ function cutString($value, $piece) {
 <title>Finder</title>
 <link rel="shortcut icon" href="sys.files.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js"></script>
-<script src="base.js"></script>
-<script src="sort.js"></script>
+<script src="jquery.js?rev=<?=time();?>"></script>
+<script src="base.js?rev=<?=time();?>"></script>
+<script src="edit.js?rev=<?=time();?>"></script>
+<script src="file.js?rev=<?=time();?>"></script>
+<script src="sort.js?rev=<?=time();?>"></script>
 <script src="http://www.midijs.net/lib/midi.js"></script>
 <script>
 window.onload = function() {
     document.getElementById('search').focus();
-}
-function find() {
-    var dir = search.name;
-    var q = search.value;
-    if (window.XMLHttpRequest) {
-        xmlhttp=new XMLHttpRequest();
-    } else {
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (this.readyState==4 && this.status==200) {
-            window.location.href = "finder.php?dir="+dir+"&q="+q;
-        }
-    }
-    xmlhttp.open("GET","finder.php?dir="+dir+"&q="+q,false);
-    xmlhttp.send();
-}
-function del(name) {
-    if (window.XMLHttpRequest) {
-        xmlhttp=new XMLHttpRequest();
-    } else {
-        xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function() {
-        if (this.readyState==4 && this.status==200) {
-            document.location.reload();
-        }
-    }
-    xmlhttp.open("POST","delete.php?name="+name,false);
-    xmlhttp.send();
-}
-function playAudio(name) {
-    audioPlayer.src = name;
-    audioPlayer.play();
-}
-function pauseAudio() {
-    audioPlayer.pause();
-}
-function playMIDI(id) {
-    MIDIjs.play(id);
-}
-function pauseMIDI(id) {
-    MIDIjs.pause(id);
-}
-function levelUp(dir) {
-    if (dir.toString('').includes('/')) {
-        var split = dir.toString('').split('/');
-        var count = split.length;
-        var last = count - 1;
-        var link = dir.toString('').replace('/' + split[last], '');
-    } else {
-        var link = dir;
-    }
-    window.location.href = 'finder.php?dir=' + link;
 }
 </script>
 </head>
@@ -110,11 +58,11 @@ function levelUp(dir) {
 <p align="center">
 <input type="text" id="search" onkeydown="
 if (event.keyCode == 13) {
-    find();
+    fileSearch();
 }" style="width:60%;" name="<?=$dir;?>" placeholder="Enter the search query" value="">
-<input type="button" class="actionButtonGreen" onclick="find();" value=">">
-<input type="button" class="actionButtonRed" name="<?=$dir;?>" onclick="levelUp(this.name);" value="<">
-<input type="button" class="actionButtonRed" onclick="window.location.href = 'index.php';" value="X">
+<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="fileSearch();" value=">">
+<input type="button" class="actionButtonYellow" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" name="<?=$dir;?>" onclick="levelUp(this.name);" value="<">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <div class='panel'>
@@ -204,8 +152,8 @@ foreach ($list as $key=>$value) {
 <?=$perms;?>
 </td>
 <td>
-<img width="40%" src="sys.edit.png?rev=<?=time();?>" title="Edit" name="<?=$dir.'/'.$value;?>" onclick="window.location.href = 'textedit.php?name=' + this.name + '&lock=true';">
-<img width="40%" src="sys.rm.png?rev=<?=time();?>" title="Delete" name="<?=$dir.'/'.$value;?>" onclick="del(this.name);">
+<img width="40%" src="sys.edit.png?rev=<?=time();?>" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onmouseover="playAudio(soundPlayer, 'take.flac');" title="Edit" name="<?=$dir.'/'.$value;?>"  onclick="window.location.href = 'textedit.php?name=' + this.name + '&lock=true';">
+<img width="40%" src="sys.rm.png?rev=<?=time();?>" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onmouseover="playAudio(soundPlayer, 'alert.flac');" title="Delete" name="<?=$dir.'/'.$value;?>" onclick="del(this.name);">
 </td>
 </tr>
 <?php } ?>
@@ -213,5 +161,6 @@ foreach ($list as $key=>$value) {
 </table>
 </div>
 <audio id="audioPlayer">
+<audio id="soundPlayer" <?php if (!$sounds) { ?>muted="muted"<?php } ?>>
 </body>
 </html>
