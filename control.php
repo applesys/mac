@@ -31,5 +31,6 @@ macOS Control Center
 }"><?=$background;?></textarea>
 </p>
 </div>
+<audio id="soundPlayer" <?php if (!$sounds) { ?>muted="muted"<?php } ?>>
 </body>
 </html>
