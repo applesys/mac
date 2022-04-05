@@ -98,7 +98,7 @@ foreach ($list as $key=>$value) {
             $type = 'Image';
         } elseif ($extension == 'pkg') {
             $icon = 'sys.pkg.png';
-            $link = "javascript:get('d', '".$basename."', 'from', 'here');";
+            $link = "javascript:get('d', '', '".$basename."', 'from', '', 'here');";
             $type = 'Package';
         } elseif ($extension == 'app') {
             $appOpen = file_get_contents($value);
