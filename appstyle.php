@@ -63,6 +63,19 @@ input, select, textarea {
     opacity: 0.7;
     position: relative;
 }
+.actionButton {
+    background: linear-gradient(to bottom, #28ce53 0%, #1dbd3a 100%);
+    background-size: 100%;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    width: 29px;
+    height: 28px;
+    font-family: "sfuitext";
+    font-weight: bold;
+    font-size: 14pt;
+    position: relative;
+}
 .actionButtonGreen {
     background: linear-gradient(to bottom, #28ce53 0%, #1dbd3a 100%);
     background-size: 100%;
