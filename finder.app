@@ -1,1 +1,1 @@
-Finder=||=sys.files.png=||=window.location.href='finder.php';
+Finder|[1]|sys.files.png|[1]|window.location.href='finder.php';

@@ -1,1 +1,1 @@
-QuickTime=||=sys.vid.png=||=window.location.href='finder.php?q=.mp4,.mkv,.webm';
+QuickTime|[1]|sys.vid.png|[1]|window.location.href='finder.php?q=.mp4,.mkv,.webm';

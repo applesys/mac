@@ -1,1 +1,1 @@
-Change Background=||=sys.back.png=||=window.location.href='backgrounds.php';
+Change Background|[1]|sys.back.png|[1]|window.location.href='backgrounds.php';

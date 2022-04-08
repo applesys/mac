@@ -1,1 +1,1 @@
-Control Center=||=sys.settings.png=||=window.location.href='control.php';
+Control Center|[1]|sys.settings.png|[1]|window.location.href='control.php';
