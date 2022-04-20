@@ -17,8 +17,7 @@ $list = str_replace($dir.'/','',(glob($dir.'/back.*.png')));
 <title>Backgrounds</title>
 <link rel="shortcut icon" href="sys.back.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js?rev=<?=time();?>"></script>
-<script src="base.js?rev=<?=time();?>"></script>
+<?php include 'include.php'; ?>
 </head>
 <body>
 <div class='top'>

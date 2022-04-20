@@ -10,8 +10,7 @@ include 'syspkg.php';
 <title>Background Preview</title>
 <link rel="shortcut icon" href="sys.preview.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js?rev=<?=time();?>"></script>
-<script src="base.js?rev=<?=time();?>"></script>
+<?php include 'include.php'; ?>
 </head>
 <body>
 <div class='top'>

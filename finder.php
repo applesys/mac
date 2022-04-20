@@ -42,12 +42,7 @@ function cutString($value, $piece) {
 <title>Finder</title>
 <link rel="shortcut icon" href="sys.files.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js?rev=<?=time();?>"></script>
-<script src="base.js?rev=<?=time();?>"></script>
-<script src="edit.js?rev=<?=time();?>"></script>
-<script src="file.js?rev=<?=time();?>"></script>
-<script src="sort.js?rev=<?=time();?>"></script>
-<script src="http://www.midijs.net/lib/midi.js"></script>
+<?php include 'include.php'; ?>
 <script>
 window.onload = function() {
     document.getElementById('search').focus();

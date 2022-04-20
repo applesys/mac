@@ -11,8 +11,7 @@ $list = str_replace($dir.'/','',(glob($dir.'/*.{app,pkg}', GLOB_BRACE)));
 <title>macOS Web</title>
 <link rel="shortcut icon" href="favicon.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
-<script src="jquery.js?rev=<?=time();?>"></script>
-<script src="base.js?rev=<?=time();?>"></script>
+<?php include 'include.php'; ?>
 <script>
 window.onload = function() {
     playAudio(soundPlayer, "snd.bootup.flac?rev=<?=time();?>");
