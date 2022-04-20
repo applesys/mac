@@ -1,6 +1,7 @@
 <?php
-include 'config.php';
 $dir = '.';
+$background = file_get_contents('background');
+include 'syspkg.php';
 ?>
 <html>
 <head>
@@ -16,13 +17,13 @@ $dir = '.';
 <div class='top'>
 <p align="center">
 macOS Control Center 
-<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="set('background', setBackField.value);" value=">">
-<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
+<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="set('background', setBackField.value);" value=">">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <div class='panel'>
 <p align="center">
-<input type='button' id="muteSound" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" name="<?=$sounds;?>" value="<?php if ($sounds) { ?>Mute<?php } else { ?>Unmute<?php } ?>" onclick="mute(muteSound.name);">
+<input type='button' id="muteSound" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" name="<?=$sounds;?>" value="<?php if ($sounds) { ?>Mute<?php } else { ?>Unmute<?php } ?>" onclick="mute(muteSound.name);">
 </p>
 <p align="center">
 <label>Background image: </label><br>

@@ -1,6 +1,7 @@
 <?php
-include 'config.php';
 $dir = ($_REQUEST['dir']) ? $_REQUEST['dir'] : '.';
+$background = file_get_contents('background');
+include 'syspkg.php';
 if ($_REQUEST) {
     $q = $_REQUEST['q'];
     if ($q != '') {
@@ -60,9 +61,9 @@ window.onload = function() {
 if (event.keyCode == 13) {
     fileSearch();
 }" style="width:60%;" name="<?=$dir;?>" placeholder="Enter the search query" value="">
-<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="fileSearch();" value=">">
-<input type="button" class="actionButtonYellow" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" name="<?=$dir;?>" onclick="levelUp(this.name);" value="<">
-<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
+<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="fileSearch();" value=">">
+<input type="button" class="actionButtonYellow" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" name="<?=$dir;?>" onclick="levelUp(this.name);" value="<">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <div class='panel'>
@@ -160,8 +161,8 @@ foreach ($list as $key=>$value) {
 <?=$perms;?>
 </td>
 <td>
-<img width="40%" src="sys.edit.png?rev=<?=time();?>" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onmouseover="playAudio(soundPlayer, 'take.flac');" title="Edit" name="<?=$dir.'/'.$value;?>"  onclick="window.location.href = 'textedit.php?name=' + this.name + '&lock=true';">
-<img width="40%" src="sys.rm.png?rev=<?=time();?>" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onmouseover="playAudio(soundPlayer, 'alert.flac');" title="Delete" name="<?=$dir.'/'.$value;?>" onclick="del(this.name);">
+<img width="40%" src="sys.edit.png?rev=<?=time();?>" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onmouseover="playAudio(soundPlayer, 'take.flac');" title="Edit" name="<?=$dir.'/'.$value;?>"  onclick="window.location.href = 'textedit.php?name=' + this.name + '&lock=true';">
+<img width="40%" src="sys.rm.png?rev=<?=time();?>" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onmouseover="playAudio(soundPlayer, 'alert.flac');" title="Delete" name="<?=$dir.'/'.$value;?>" onclick="del(this.name);">
 </td>
 </tr>
 <?php } ?>

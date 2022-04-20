@@ -1,6 +1,7 @@
 <?php
-include 'config.php';
 $name = $_REQUEST['name'];
+$background = file_get_contents('background');
+include 'syspkg.php';
 ?>
 <html>
 <head>

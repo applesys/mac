@@ -1,7 +1,8 @@
 <?php
-include 'config.php';
 $dir = '.';
 $lock = ($_REQUEST['lock']) ? $_REQUEST['lock'] : 'true';
+$background = file_get_contents('background');
+include 'syspkg.php';
 if ($lock == 'true') {
     $lockInv = 'false';
 } elseif ($lock == 'false') {
@@ -31,9 +32,9 @@ foreach ($list as $key=>$value) {
 <option id="<?=$value;?>"><?=$backNameDisp;?></option>
 <?php } ?>
 </select>
-<input type="button" class="actionButtonYellow" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="set('background', '<?=$list[0];?>');" value="<">
-<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href='backgrounds.php?lock=<?=$lockInv;?>';" value="!">
-<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, 'default.flac?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
+<input type="button" class="actionButtonYellow" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="set('background', '<?=$list[0];?>');" value="<">
+<input type="button" class="actionButtonGreen" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="window.location.href='backgrounds.php?lock=<?=$lockInv;?>';" value="!">
+<input type="button" class="actionButtonRed" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" onclick="window.location.href = 'index.php';" value="X">
 </p>
 </div>
 <?php if ($lock == 'false') { ?>
