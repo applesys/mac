@@ -148,7 +148,7 @@ foreach ($list as $key=>$value) {
 <tr>
 <td>
 <a href="<?=$icon;?>">
-<img width="80%" src="<?=$icon;?>?rev=<?=time();?>">
+<img width="80%" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" src="<?=$icon;?>?rev=<?=time();?>">
 </a>
 </td>
 <td>
