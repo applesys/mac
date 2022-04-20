@@ -32,7 +32,7 @@ foreach ($list as $key=>$value) {
     $fileExt = pathinfo($value, PATHINFO_EXTENSION);
     if ($fileExt == 'app') {
         $fileContent = file_get_contents($value);
-        $fileExp = explode('=||=', $fileContent);
+        $fileExp = explode('|[1]|', $fileContent);
         $fileTitle = $fileExp[0];
         $fileIcon = (file_exists($fileExp[1])) ? $fileExp[1] : 'sys.app.png';
         $fileLink = $fileExp[2];
