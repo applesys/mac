@@ -15,7 +15,7 @@ $list = str_replace($dir.'/','',(glob($dir.'/*.{app,pkg}', GLOB_BRACE)));
 <script src="base.js?rev=<?=time();?>"></script>
 <script>
 window.onload = function() {
-    playAudio(soundPlayer, "bootup.flac?rev=<?=time();?>");
+    playAudio(soundPlayer, "snd.bootup.flac?rev=<?=time();?>");
 }
 </script>
 </head>
