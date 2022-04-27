@@ -1,5 +1,15 @@
 <?php
 $dir = '.';
+if (file_get_contents('name')) {
+    $projectTitleFile = file_get_contents('name');
+    if ($projectTitleFile != '') {
+        $projectTitle = $projectTitleFile;
+    } else {
+        $projectTitle = 'macOS Web';
+    }
+} else {
+    $projectTitle = 'macOS Web';
+}
 $background = file_get_contents('background');
 include 'syspkg.php';
 $list = str_replace($dir.'/','',(glob($dir.'/*.{app,pkg}', GLOB_BRACE)));
@@ -8,7 +18,7 @@ $list = str_replace($dir.'/','',(glob($dir.'/*.{app,pkg}', GLOB_BRACE)));
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-<title>macOS Web</title>
+<title><?=$projectTitle;?></title>
 <link rel="shortcut icon" href="favicon.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
 <?php include 'include.php'; ?>
