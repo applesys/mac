@@ -22,7 +22,7 @@ if ($playlistUri != '') {
 <script>
 function openPlaylist(uri)
 {
-    window.location.href = 'deadbeef.php?uri=' + uri;
+    window.location.href = 'itunes.php?uri=' + uri;
 }
 </script>
 </head>
