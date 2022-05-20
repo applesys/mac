@@ -10,7 +10,7 @@
 body {
     background-color: #e4e4e4;
     background-image: url(<?=$background;?>);
-    background-size: auto 100vh;
+    background-size: cover;
     background-repeat: no-repeat;
     color: #000;
     font-family: "sfuitext";
