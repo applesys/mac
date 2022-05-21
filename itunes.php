@@ -15,7 +15,7 @@ if ($playlistUri != '') {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>iTunes</title>
-<link rel="shortcut icon" href="sys.back.png?rev=<?=time();?>" type="image/x-icon">
+<link rel="shortcut icon" href="sys.aud.png?rev=<?=time();?>" type="image/x-icon">
 <?php include 'appstyle.php'; ?>
 <?php include 'base.incl.php'; ?>
 <?php include 'file.incl.php'; ?>
