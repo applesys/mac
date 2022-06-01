@@ -21,7 +21,7 @@ if ($playlistOpen != '') {
 <script>
 function openPlaylist(uri)
 {
-    window.location.href = 'itunes.php?uri=' + uri;
+    window.location.href = 'itunes.php?name=' + name;
 }
 </script>
 </head>
