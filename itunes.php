@@ -19,7 +19,7 @@ if ($playlistOpen != '') {
 <?php include 'base.incl.php'; ?>
 <?php include 'file.incl.php'; ?>
 <script>
-function openPlaylist(uri)
+function openPlaylist(name)
 {
     window.location.href = 'itunes.php?name=' + name;
 }
