@@ -2,12 +2,11 @@
 $dir = '.';
 $background = file_get_contents('background');
 include 'syspkg.php';
-$playlists = file_get_contents('https://github.com/wholemarket/playlist/blob/main/playlists?raw=true');
-$playlistArr = explode('|[1]|', $playlists);
-$playlistUri = ($_REQUEST['uri']) ? $_REQUEST['uri'] : '';
-if ($playlistUri != '') {
-    $playlistFile = file_get_contents($playlistUri.'/playlist.pl?raw=true');
-    $currentPlaylist = explode(';', $playlistFile);
+$list = str_replace($dir.'/','',(glob($dir.'/*.pl')));
+$playlistFile = ($_REQUEST['name']) ? $_REQUEST['name'] : '';
+$playlistOpen = file_get_contents($playlistFile);
+if ($playlistOpen != '') {
+    $playlistArr = explode('|[1]|', $playlistOpen);
 }
 ?>
 <html>
@@ -32,12 +31,10 @@ function openPlaylist(uri)
 <select id='musicPlaylist' onchange="openPlaylist(musicPlaylist.options[musicPlaylist.selectedIndex].id);">
 <option>Current</option>
 <?php
-foreach ($playlistArr as $key=>$item) {
-    $itemArr = explode('|[2]|', $item);
-    $itemTitle = $itemArr[0];
-    $itemUri = $itemArr[1];
+foreach ($list as $key=>$value) {
+    $playlistID = basename($value, '.pl');
 ?>
-<option id="<?=$itemUri;?>"><?=$itemTitle;?></option>
+<option id="<?=$value;?>"><?=ucfirst($playlistID);?></option>
 <?php } ?>
 </select>
 <input type='button' class='actionButtonGreen' onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" value="U" onclick="get('i','','from','deadbeef','','flossely',false);">
@@ -46,12 +43,14 @@ foreach ($playlistArr as $key=>$item) {
 </div>
 <div class='panel'>
 <?php
-if ($playlistUri != '') {
-foreach ($currentPlaylist as $key=>$value) {
-    $fullAudioUri = $playlistUri . '/' . $value . '?raw=true';
+if ($playlistOpen != '') {
+    foreach ($playlistArr as $key=>$part) {
+        $playlistDiv = explode('|[2]|', $part);
+        $playlistElemTitle = $playlistDiv[0];
+        $playlistElemURI = $playlistDiv[1];
 ?>
 <p align='center'>
-<input type='button' style="width:90%;position:relative;" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" value="<?=$value;?>" onclick="playAudio(audioPlayer, '<?=$fullAudioUri;?>')">
+<input type='button' style="width:90%;position:relative;" onmouseover="playAudio(soundPlayer, '<?=$soundlib[rand(0,$soundct)];?>?rev=<?=time();?>');" value="<?=$playlistElemTitle;?>" onclick="playAudio(audioPlayer, '<?=$playlistElemURI;?>')">
 </p>
 <?php }} ?>
 </div>

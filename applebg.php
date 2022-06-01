@@ -8,7 +8,7 @@ if ($lock == 'true') {
 } elseif ($lock == 'false') {
     $lockInv = 'true';
 }
-$bgfile = file_get_contents('https://github.com/applesys/wmac/blob/main/backgrounds?raw=true');
+$bgfile = file_get_contents('backgrounds');
 $list = explode(';', $bgfile);
 ?>
 <html>
