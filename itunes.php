@@ -3,10 +3,12 @@ $dir = '.';
 $background = file_get_contents('background');
 include 'syspkg.php';
 $list = str_replace($dir.'/','',(glob($dir.'/*.pl')));
-$playlistFile = ($_REQUEST['name']) ? $_REQUEST['name'] : '';
-$playlistOpen = file_get_contents($playlistFile);
-if ($playlistOpen != '') {
-    $playlistArr = explode('|[1]|', $playlistOpen);
+if ($_REQUEST['name']) {
+    $playlistFile = $_REQUEST['name'];
+    $playlistOpen = file_get_contents($playlistFile);
+} else {
+    $playlistFile = '';
+    $playlistOpen = '';
 }
 ?>
 <html>
@@ -44,6 +46,7 @@ foreach ($list as $key=>$value) {
 <div class='panel'>
 <?php
 if ($playlistOpen != '') {
+    $playlistArr = explode('|[1]|', $playlistOpen);
     foreach ($playlistArr as $key=>$part) {
         $playlistDiv = explode('|[2]|', $part);
         $playlistElemTitle = $playlistDiv[0];
