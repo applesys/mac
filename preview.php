@@ -1,7 +1,7 @@
 <?php
 $dir = '.';
 $background = file_get_contents('background');
-include 'syspkg.php';
+include 'system.php';
 ?>
 <html>
 <head>

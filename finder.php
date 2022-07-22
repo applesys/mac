@@ -1,7 +1,7 @@
 <?php
 $dir = ($_REQUEST['dir']) ? $_REQUEST['dir'] : '.';
 $background = file_get_contents('background');
-include 'syspkg.php';
+include 'system.php';
 if ($_REQUEST) {
     $q = $_REQUEST['q'];
     if ($q != '') {

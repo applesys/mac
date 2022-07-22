@@ -2,7 +2,7 @@
 $name = $_REQUEST['name'];
 $lock = $_REQUEST['lock'];
 $background = file_get_contents('background');
-include 'syspkg.php';
+include 'system.php';
 if ($lock != 'true') {
     $content = file_get_contents($name);
 }
